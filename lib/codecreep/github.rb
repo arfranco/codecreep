@@ -6,8 +6,16 @@ module Codecreep
     base_uri 'https://api.github.com'
     basic_auth ENV['GH_USER'], ENV['GH_PASS']
 
-    def get_user(user_id)
-      self.class.get("/users/#{username}")
+    def get_user(user_name)
+      self.class.get("/users/#{user_name}")
+    end
+
+    def get_followers(user_name)
+      self.class.get("/users/#{user_name}/followers")
+    end
+
+    def get_following(user_name)
+      self.class.get("/users/#{user_name}/following")
     end
 
     # different api calls similar to issues
